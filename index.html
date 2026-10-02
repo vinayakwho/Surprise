@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Surprise Website 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background decorative floating hearts -->
+  <div class="ambient-bg" id="ambient-bg" aria-hidden="true"></div>
+
+  <!-- Main App Container -->
+  <div class="app-root">
+
+    <!-- ============================================== -->
+    <!-- VIEW 1: CREATOR / CUSTOMIZER SCREEN           -->
+    <!-- ============================================== -->
+    <section class="view-screen creator-view active" id="creator-view">
+      <div class="creator-card">
+        <div class="card-badge">✨ Surprise Website</div>
+        <h1 class="creator-title">Who is this <em>for</em>?</h1>
+        <p class="creator-subtitle">Enter the name of the person you're making this for.</p>
+
+        <form id="creator-form" onsubmit="event.preventDefault(); startPreview();">
+          <div class="input-group">
+            <label for="recipient-name" class="sr-only">Recipient Name</label>
+            <input
+              type="text"
+              id="recipient-name"
+              class="text-input"
+              placeholder="e.g. Megha"
+              value="Megha"
+              maxlength="30"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <!-- Preset Question Selection -->
+          <div class="question-options">
+            <span class="options-label">Select or type a question:</span>
+            <div class="preset-chips" id="preset-chips">
+              <button type="button" class="chip active" data-q="Excited for our first date..?">First Date ☕</button>
+              <button type="button" class="chip" data-q="Will you be my Valentine..?">Valentine 💘</button>
+              <button type="button" class="chip" data-q="Are you free for dinner tonight..?">Dinner 🍕</button>
+              <button type="button" class="chip" data-q="Will you go out with me..?">Go Out 🌸</button>
+            </div>
+            <input
+              type="text"
+              id="custom-question"
+              class="text-input text-input-sm"
+              placeholder="Or write your own question..."
+              value="Excited for our first date..?"
+              maxlength="70"
+            />
+          </div>
+
+          <button type="submit" class="btn-primary" id="see-preview-btn">
+            See Preview
+          </button>
+        </form>
+
+        <!-- Shareable Link Box -->
+        <div class="share-box">
+          <button type="button" class="btn-secondary" id="copy-share-btn">
+            <span>🔗 Copy Shareable Link</span>
+          </button>
+          <span class="share-hint" id="copy-status">Send this directly to your crush!</span>
+        </div>
+      </div>
+
+      <!-- Explore Other Experiences -->
+      <div class="explore-section">
+        <p class="explore-heading">Explore more Surprise Website experiences:</p>
+        <div class="explore-pills">
+          <span class="pill-tag">Birthday</span>
+          <span class="pill-tag">Puzzle</span>
+          <span class="pill-tag">Anniversary</span>
+          <span class="pill-tag">Friendship Day</span>
+          <span class="pill-tag">Apology</span>
+        </div>
+        <div class="download-pill">
+          <span>⬇️ Download the app</span>
+        </div>
+        <footer class="creator-footer">
+          <p>For any issues or feedback, reach out to <a href="mailto:support@surprisewebsite.com">support@surprisewebsite.com</a></p>
+          <div class="footer-heart">💝</div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW 2: INTERACTIVE PREVIEW SCREEN (PHONE UI)  -->
+    <!-- ============================================== -->
+    <section class="view-screen preview-view" id="preview-view">
+      <!-- Top Bar: Back Button & Header -->
+      <div class="preview-header">
+        <button type="button" class="btn-back" id="back-btn" aria-label="Go back to editor">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back</span>
+        </button>
+        <h2 class="preview-headline">
+          Here's what <span class="highlight-name" id="display-name-header">Megha</span> will see
+        </h2>
+        <div class="header-spacer"></div>
+      </div>
+
+      <!-- Phone Mockup Frame Container -->
+      <div class="phone-wrapper" id="phone-wrapper">
+        <div class="phone-frame" id="phone-frame">
+
+          <!-- iPhone Dynamic Island / Notch -->
+          <div class="phone-notch">
+            <div class="camera-lens"></div>
+            <div class="sensor-pill"></div>
+          </div>
+
+          <!-- Inside Phone Screen Content -->
+          <div class="phone-screen" id="phone-screen">
+
+            <div class="card-content">
+              <!-- Cute Mascot Avatar -->
+              <div class="mascot-container">
+                <div class="mascot-circle">
+                  <!-- Adorable blushing kitten/bear SVG with floating heart -->
+                  <svg class="mascot-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="46" fill="#FFF2DF" />
+                    <!-- Left Ear -->
+                    <polygon points="20,38 32,18 42,32" fill="#E89B59" />
+                    <polygon points="24,35 32,23 38,32" fill="#FFA5A5" />
+                    <!-- Right Ear -->
+                    <polygon points="80,38 68,18 58,32" fill="#E89B59" />
+                    <polygon points="76,35 68,23 62,32" fill="#FFA5A5" />
+                    <!-- Head -->
+                    <ellipse cx="50" cy="54" rx="36" ry="30" fill="#FBB668" />
+                    <!-- Cheeks (Blushing pink) -->
+                    <circle cx="28" cy="58" r="6.5" fill="#FF839B" opacity="0.65" />
+                    <circle cx="72" cy="58" r="6.5" fill="#FF839B" opacity="0.65" />
+                    <!-- Eyes (Happy curved) -->
+                    <path d="M32 50 C32 46, 40 46, 40 50" stroke="#37261F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                    <path d="M60 50 C60 46, 68 46, 68 50" stroke="#37261F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                    <!-- Cute nose and mouth -->
+                    <ellipse cx="50" cy="55" rx="3" ry="2.2" fill="#7A4222" />
+                    <path d="M47 58 Q50 61 53 58" stroke="#7A4222" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <!-- Heart Sticker on ear (as shown in reference image) -->
+                    <g class="mascot-heart-badge">
+                      <circle cx="75" cy="27" r="11" fill="#FF4E88" />
+                      <path d="M75 32 C73 30, 69 27, 69 24.5 C69 22.5, 70.8 21, 72.8 21 C74 21, 74.7 21.6, 75 22.2 C75.3 21.6, 76 21, 77.2 21 C79.2 21, 81 22.5, 81 24.5 C81 27, 77 30, 75 32 Z" fill="#FFF" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Question Heading -->
+              <h3 class="invite-question" id="invite-question">
+                <span id="display-name-body">Megha</span>, <span id="display-question-body">Excited for our first date..?</span>
+              </h3>
+
+              <!-- Button Arena where "Yes" grows and "No" runs away -->
+              <div class="interactive-arena" id="interactive-arena">
+                <!-- RUNAWAY NO BUTTON (on the left, matching screenshot) -->
+                <button type="button" class="btn-no" id="btn-no">
+                  <span class="btn-no-text">No</span>
+                  <span class="btn-no-emoji">🙈</span>
+                </button>
+
+                <!-- YES BUTTON (matching screenshot) -->
+                <button type="button" class="btn-yes" id="btn-yes">
+                  <span class="btn-yes-text">Yes</span>
+                  <span class="btn-yes-emoji">💖</span>
+                </button>
+              </div>
+
+              <!-- Reactive Tease Message (italic pink text from reference screenshot) -->
+              <p class="tease-message" id="tease-message" aria-live="polite">
+                Haha, nice try!
+              </p>
+
+            </div>
+
+            <!-- Bottom Media Floating Bar (from reference screenshot) -->
+            <div class="phone-media-bar">
+              <!-- Play / Pause Music -->
+              <button type="button" class="media-btn" id="btn-music-toggle" title="Play/Pause Romantic Music" aria-label="Toggle background tune">
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="6" y="4" width="4" height="16" rx="1.5"></rect>
+                  <rect x="14" y="4" width="4" height="16" rx="1.5"></rect>
+                </svg>
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+              </button>
+
+              <!-- Mute / Unmute Sound Effects -->
+              <button type="button" class="media-btn" id="btn-sound-toggle" title="Mute/Unmute Sounds" aria-label="Toggle sound effects">
+                <svg class="icon-volume-on" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"></path>
+                </svg>
+                <svg class="icon-volume-off" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                  <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                  <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                </svg>
+              </button>
+
+              <!-- Fullscreen / Frame Toggle -->
+              <button type="button" class="media-btn" id="btn-expand-toggle" title="Toggle Fullscreen View" aria-label="Toggle fullscreen view">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <polyline points="9 21 3 21 3 15"></polyline>
+                  <line x1="21" y1="3" x2="14" y2="10"></line>
+                  <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW 3: CELEBRATION / VICTORY OVERLAY          -->
+    <!-- ============================================== -->
+    <div class="celebration-overlay" id="celebration-overlay" aria-hidden="true">
+      <canvas id="confetti-canvas"></canvas>
+      <div class="celebration-card">
+        <div class="celebration-mascot">
+          <div class="heart-pulse-badge">🎉💖🥰</div>
+        </div>
+        <h2 class="celebration-title">YAYYY! It's a date! ❤️</h2>
+        <p class="celebration-subtitle">
+          I knew you couldn't resist, <span id="celebrate-name">Megha</span>!
+        </p>
+        <p class="celebration-details" id="celebration-quote">
+          Best decision ever. Get ready for an unforgettable time together! ✨🥂
+        </p>
+
+        <div class="celebration-actions">
+          <button type="button" class="btn-primary" id="btn-whatsapp-share">
+            <span>💬 Send on WhatsApp</span>
+          </button>
+          <button type="button" class="btn-secondary" id="btn-play-again">
+            <span>↺ Play Again</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast" role="alert">Link copied to clipboard! 💌</div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
